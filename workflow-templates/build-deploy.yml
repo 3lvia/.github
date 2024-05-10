@@ -1,0 +1,19 @@
+name: Build and deploy to Kubernetes
+
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+jobs:
+  deploy-dev:
+    name: Deploy to dev
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    environment: dev
+    steps:
+      - name: Deploy
+        run: echo 'Deployed!'
