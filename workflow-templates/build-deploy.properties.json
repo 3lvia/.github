@@ -1,4 +1,6 @@
   {
-    "name": "Build and Deploy to Kubernetes",
-    "description": "Build and Deploy to Kubernetes"
+    "name": "Build and Deploy",
+    "description": "Easily deploy your application to Atlas!",
+    "iconName": "octicon rocket",
+    "categories": ["deployment", "continuous-integration", "testing"]
   }

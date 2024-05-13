@@ -1,4 +1,6 @@
   {
-    "name": "Build and Deploy to Kubernetes on Google Cloud",
-    "description": "Build and Deploy to Kubernetes on Google Cloud"
+    "name": "Build and Deploy (Google Cloud)",
+    "description": "Easily deploy your application to Atlas! NOTE: this action will only work for systems already running on Google Cloud.",
+    "iconName": "octicon rocket",
+    "categories": ["deployment", "continuous-integration", "testing"]
   }
