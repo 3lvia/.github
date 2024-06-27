@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [$default-branch]
 
+concurrency:
+  group: '${{ github.workflow }}-${{ github.event_name }}'
+
 env:
   APPLICATION_NAME: '<your application name here>'
   SYSTEM_NAME: '<your system name here>'
