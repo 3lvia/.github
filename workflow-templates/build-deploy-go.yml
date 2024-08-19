@@ -2,7 +2,7 @@ name: Build and Deploy Go to Kubernetes
 
 on:
   push:
-    branches: [trunk]
+    branches: [$default-branch]
   pull_request:
     branches: [$default-branch]
 
