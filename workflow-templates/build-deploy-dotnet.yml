@@ -2,7 +2,7 @@ name: Build and Deploy .NET to Kubernetes
 
 on:
   push:
-    branches: [$default-branch]
+    branches: [trunk]
   pull_request:
     branches: [$default-branch]
 
@@ -83,8 +83,8 @@ jobs:
       contents: read
       id-token: write
     environment: dev
-    # Only on push to $default-branch
-    if: github.ref_name == $default-branch
+    # Only on push to trunk
+    if: github.ref == 'refs/heads/trunk'
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
@@ -104,8 +104,8 @@ jobs:
       contents: read
       id-token: write
     environment: test
-    # Only on push to $default-branch
-    if: github.ref_name == $default-branch
+    # Only on push to trunk
+    if: github.ref == 'refs/heads/trunk'
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
@@ -126,7 +126,7 @@ jobs:
       id-token: write
     environment: prod
     # Only on push to $default-branch
-    if: github.ref_name == $default-branch
+    if: github.ref_name == "trunk"
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
