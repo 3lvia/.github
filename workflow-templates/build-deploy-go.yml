@@ -44,8 +44,8 @@ jobs:
 
   deploy-dev:
     name: Deploy Dev
-    # Required these jobs to be successful before running this job.
-    # Any of these can be commented out if you want to deploy anyway.
+    # Require all jobs below to be successful before running this job.
+    # Any of these can be commented out or removed if you want to deploy anyway.
     needs:
       - build-scan
       - analyze
@@ -54,8 +54,8 @@ jobs:
       contents: read
       id-token: write
     environment: dev
-    # Only on push to trunk
-    if: github.ref == 'refs/heads/trunk'
+    # Only on push to $default-branch
+    if: github.ref == '-branch'
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
@@ -75,8 +75,8 @@ jobs:
       contents: read
       id-token: write
     environment: test
-    # Only on push to trunk
-    if: github.ref == 'refs/heads/trunk'
+    # Only on push to $default-branch
+    if: github.ref == '-branch'
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
@@ -96,8 +96,8 @@ jobs:
       contents: read
       id-token: write
     environment: prod
-    # Only on push to trunk
-    if: github.ref == 'refs/heads/trunk'
+    # Only on push to $default-branch
+    if: github.ref == '-branch'
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
         with:
