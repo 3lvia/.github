@@ -11,9 +11,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  APPLICATION_NAME: 'demo-api-go'
+  APPLICATION_NAME: '<your application name here>'
   SYSTEM_NAME: '<your system name here>'
-  HELM_VALUES_PATH: '.github/test-go/deploy/values.yml'
+  HELM_VALUES_PATH: '.github/deploy/values.yml'
   PROJECT_FILE: '<your project file path here>'
 
 jobs:

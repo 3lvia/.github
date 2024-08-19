@@ -1,6 +1,0 @@
-  {
-    "name": "Build and Deploy",
-    "description": "Easily deploy your application to Atlas!",
-    "iconName": "octicon rocket",
-    "categories": ["Deployment", "Continuous integration"]
-  }
