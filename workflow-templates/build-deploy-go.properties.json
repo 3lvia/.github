@@ -1,4 +1,6 @@
   {
     "name": "Build and Deploy Go to Kubernetes",
-    "description": "Build and Deploy Go to Kubernetes"
+    "description": "Easily deploy your Go application to Atlas!",
+    "iconName": "octicon rocket",
+    "categories": ["Deployment", "Continuous integration"]
   }
