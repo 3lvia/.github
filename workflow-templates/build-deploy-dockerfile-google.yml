@@ -60,8 +60,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    concurrency:
-      group: 'dev-google--this-block-is-removed-in-final-example-needs-this-to-not-deploy-demo-api-go-simultaneously-in-two-examples'
     environment: dev
     # Only on push to trunk
     if: github.ref == 'refs/heads/trunk'
@@ -87,8 +85,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    concurrency:
-      group: 'test-google--this-block-is-removed-in-final-example-needs-this-to-not-deploy-demo-api-go-simultaneously-in-two-examples'
     environment: test
     # Only on push to trunk
     if: github.ref == 'refs/heads/trunk'
@@ -114,8 +110,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    concurrency:
-      group: 'prod-google--this-block-is-removed-in-final-example-needs-this-to-not-deploy-demo-api-go-simultaneously-in-two-examples'
     environment: prod
     # Only on push to trunk
     if: github.ref == 'refs/heads/trunk'
