@@ -1,6 +1,6 @@
   {
     "name": "Build and Deploy .NET to Kubernetes",
     "description": "Easily deploy your .NET application to Atlas!",
-    "iconName": "octicon rocket",
-    "categories": ["Deployment", "Continuous integration"]
+    "iconName": "azure",
+    "categories": ["C#", "Deployment", "Kubernetes"]
   }

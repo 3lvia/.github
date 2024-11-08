@@ -1,6 +1,6 @@
   {
     "name": "Build and Deploy to Kubernetes with Dockerfile",
-    "description": "Easily deploy your application to Atlas!",
-    "iconName": "octicon rocket",
-    "categories": ["Deployment", "Continuous integration"]
+    "description": "Easily deploy your Docker application to Atlas!",
+    "iconName": "azure",
+    "categories": ["Dockerfile", "Deployment", "Kubernetes"]
   }

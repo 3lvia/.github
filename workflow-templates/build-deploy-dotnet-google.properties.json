@@ -1,6 +1,6 @@
   {
     "name": "Build and Deploy .NET to Kubernetes on Google Cloud",
     "description": "Easily deploy your .NET application to Atlas! This action will only work for systems already running on Google Cloud.",
-    "iconName": "octicon rocket",
-    "categories": ["Deployment", "Continuous integration"]
+    "iconName": "google-cloud",
+    "categories": ["C#", "Deployment", "Kubernetes"]
   }

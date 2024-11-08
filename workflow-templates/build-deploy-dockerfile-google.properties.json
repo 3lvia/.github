@@ -1,6 +1,6 @@
   {
     "name": "Build and Deploy to Kubernetes with Dockerfile on Google Cloud",
-    "description": "Easily deploy your application to Atlas! This action will only work for systems already running on Google Cloud.",
-    "iconName": "octicon rocket",
-    "categories": ["Deployment", "Continuous integration"]
+    "description": "Easily deploy your Docker application to Atlas! This action will only work for systems already running on Google Cloud.",
+    "iconName": "google-cloud",
+    "categories": ["Dockerfile", "Deployment", "Kubernetes"]
   }
