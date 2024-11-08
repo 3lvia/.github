@@ -1,6 +1,6 @@
   {
     "name": "Build and Deploy .NET to ISS",
     "description": "Easily deploy your .NET application to ISS on Atlas! This action will only work for systems already running on ISS.",
-    "iconName": "google-cloud",
+    "iconName": "atlas",
     "categories": ["C#", "Deployment", "Kubernetes"]
   }
