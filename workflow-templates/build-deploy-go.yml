@@ -14,10 +14,10 @@ on:
     branches: [$default-branch]
 
 env:
-  APPLICATION_NAME: '<your application name here>'
   SYSTEM_NAME: '<your system name here>'
-  HELM_VALUES_FILE: '.github/deploy/values.yml'
+  APPLICATION_NAME: '<your application name here>'
   PROJECT_FILE: '<your project file path here>'
+  HELM_VALUES_FILE: '.github/deploy/values.yml'
 
 jobs:
   analyze:
@@ -75,7 +75,7 @@ jobs:
       id-token: write
     # Limits the number of concurrent runs of this job to one, but DOES NOT cancel any in progress.
     concurrency:
-      ${{ github.workflow }}-${{ github.ref }}-deploy-dev
+      group: '${{ github.workflow }}-${{ github.ref }}-deploy-dev'
     environment: dev
     steps:
       - uses: 3lvia/core-github-actions-templates/deploy@trunk
@@ -99,7 +99,7 @@ jobs:
       id-token: write
     # Limits the number of concurrent runs of this job to one, but DOES NOT cancel any in progress.
     concurrency:
-      ${{ github.workflow }}-${{ github.ref }}-deploy-test
+      group: '${{ github.workflow }}-${{ github.ref }}-deploy-test'
     environment: test
     # Only on push to trunk
     if: github.ref == 'refs/heads/trunk'
@@ -125,7 +125,7 @@ jobs:
       id-token: write
     # Limits the number of concurrent runs of this job to one, but DOES NOT cancel any in progress.
     concurrency:
-      ${{ github.workflow }}-${{ github.ref }}-deploy-prod
+      group: '${{ github.workflow }}-${{ github.ref }}-deploy-prod'
     environment: prod
     # Only on push to trunk
     if: github.ref == 'refs/heads/trunk'

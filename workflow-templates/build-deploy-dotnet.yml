@@ -14,10 +14,10 @@ on:
     branches: [$default-branch]
 
 env:
-  APPLICATION_NAME: '<your application name here>'
   SYSTEM_NAME: '<your system name here>'
-  HELM_VALUES_FILE: '.github/deploy/values.yml'
+  APPLICATION_NAME: '<your application name here>'
   PROJECT_FILE: '<your project file path here>'
+  HELM_VALUES_FILE: '.github/deploy/values.yml'
 
 jobs:
   analyze:
@@ -36,6 +36,7 @@ jobs:
         with:
           # This can be set to a more specific path if you want to analyze only a part of the repository.
           working-directory: '.'
+          language: 'csharp'
 
   unit-tests:
     name: Unit Tests
@@ -52,9 +53,9 @@ jobs:
     steps:
       - uses: 3lvia/core-github-actions-templates/unittest@trunk
         with:
-          test-coverage: 'true'
           # This can be set to a more specific path if you want to search for tests in only a part of the repository.
           working-directory: '.'
+          test-coverage: 'true'
 
   integration-tests:
     name: Integration Tests
@@ -72,9 +73,9 @@ jobs:
     steps:
       - uses: 3lvia/core-github-actions-templates/integrationtest@trunk
         with:
-          system: ${{ env.SYSTEM_NAME }}
           # This can be set to a more specific path if you want to search for tests in only a part of the repository.
           working-directory: '.'
+          system: ${{ env.SYSTEM_NAME }}
 
   build-scan:
     name: Build and Scan
