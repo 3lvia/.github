@@ -1,5 +1,5 @@
   {
-    "name": "Build and Deploy Go to Kubernetes",
+    "name": "Build and deploy Go to Atlas",
     "description": "Easily deploy your Go application to Atlas!",
     "iconName": "azure",
     "categories": ["Go", "Deployment", "Kubernetes"]

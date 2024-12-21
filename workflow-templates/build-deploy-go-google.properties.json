@@ -1,5 +1,5 @@
   {
-    "name": "Build and Deploy Go to Kubernetes on Google Cloud",
+    "name": "Build and deploy Go to Atlas on Google Cloud",
     "description": "Easily deploy your Go application to Atlas! This action will only work for systems already running on Google Cloud.",
     "iconName": "google-cloud",
     "categories": ["Go", "Deployment", "Kubernetes"]

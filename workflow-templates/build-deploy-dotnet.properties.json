@@ -1,5 +1,5 @@
   {
-    "name": "Build and Deploy .NET to Kubernetes",
+    "name": "Build and deploy .NET to Atlas",
     "description": "Easily deploy your .NET application to Atlas!",
     "iconName": "azure",
     "categories": ["C#", "Deployment", "Kubernetes"]
