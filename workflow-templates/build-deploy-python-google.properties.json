@@ -1,4 +1,6 @@
   {
     "name": "Build and Deploy Python to Kubernetes on Google Cloud",
-    "description": "Build and Deploy Python to Kubernetes on Google Cloud"
+    "description": "Easily deploy your Python application to Atlas! This action will only work for systems already running on Google Cloud.",
+    "iconName": "google-cloud",
+    "categories": ["Python", "Deployment", "Kubernetes"]
   }
