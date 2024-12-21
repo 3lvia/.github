@@ -1,4 +1,6 @@
   {
     "name": "Build and Deploy Python to Kubernetes",
-    "description": "Build and Deploy Python to Kubernetes"
+    "description": "Easily deploy your Python application to Atlas!",
+    "iconName": "azure",
+    "categories": ["Python", "Deployment", "Kubernetes"]
   }
