@@ -1,5 +1,5 @@
   {
-    "name": "Build and Deploy to Kubernetes with Dockerfile",
+    "name": "Build and deploy to Atlas with Dockerfile",
     "description": "Easily deploy your Docker application to Atlas!",
     "iconName": "azure",
     "categories": ["Dockerfile", "Deployment", "Kubernetes"]
