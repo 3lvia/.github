@@ -1,0 +1,6 @@
+{
+  "name": "Deploy Azure SQL database scripts",
+  "description": "Easily deploy your Azure SQL scripts",
+  "iconName": "azure",
+  "categories": ["Deployment", "Database"]
+}
