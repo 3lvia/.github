@@ -1,0 +1,65 @@
+name: Deploy DB scripts to Azure SQL Server
+
+on:
+  push:
+    branches: [$default-branch]
+    # paths: # filter on sql scripts?
+
+  pull_request:
+    branches: [$default-branch]
+    # paths: # filter on sql scripts?
+  workflow_dispatch: # Allow manual run
+
+##  Adding a path filter will only trigger the workflow if the files in the path are modified.
+##  This is very useful if you have a monorepo structure.
+##  See https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore for more information.
+##
+#    paths:
+#     - 'applications/my-app/**'
+##
+
+env:
+  SYSTEM_NAME: '<your system name here>'
+  DB_SERVER: '<your database server name>' # Used for Vault path - do NOT include domain name '.database.windows.net'
+  DB_NAME: '<your database name>'   
+  SQL_SCRIPT_PATH: '<your script path here>'  # Relative to repository root. Example: './sql-scripts/*.sql'
+
+jobs:
+  sql-deploy:
+    name: Deploy SQL scripts
+    runs-on: elvia-runner
+    environment: dev
+    permissions:
+      id-token: write
+      contents: read
+    concurrency:
+      group: '${{ github.workflow }}-${{ github.ref }}-deploy-db-dev'
+    steps:
+
+    # Add scale down step here if needed
+    # For AKS: Log into the AKS Subscription for the environment and run a kubectl command
+
+    - name: Vault  #Get subscription and connection-string from Vault
+      uses: 3lvia/core-github-actions-templates/vault@trunk
+      with:
+        environment: dev
+        system: ${{ env.SYSTEM_NAME }}
+        exportToken: false # Set true to stay logged in to Vault for later steps
+        secrets: |
+          ${{ env.SYSTEM_NAME }}/kv/data/info/azure-subscription subscription-id | AZURE_SUBSCRIPTION_ID ;
+          ${{ env.SYSTEM_NAME }}/kv/data/sql/${{ env.DB_SERVER }}/${{ env.DB_NAME }} connection-string-default-credentials | CONNECTION_STRING ; 
+
+    - uses: azure/login@v2  # Login to Azure to use Default Credentials
+      with:
+          client-id: ${{ vars.AKS_CLIENT_ID }} # From repository variable
+          tenant-id: ${{ vars.AZURE_TENANT_ID }} # From repository variable
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }} # From earlier Vault-step
+
+    - uses: actions/checkout@v4  # Get the code
+
+      # Can be replaced with PostgreSQL action, Grate, Command Line with EF Core, DbUp etc.
+    - uses: azure/sql-action@v2.3
+      with:        
+        connection-string: ${{ env.CONNECTION_STRING }}
+        path: ${{ env.SQL_SCRIPT_PATH }}
+        # Scripts will always run - make sure to handle idempotency in scripts

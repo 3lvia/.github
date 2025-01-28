@@ -1,0 +1,6 @@
+{
+  "name": "Deploy Azure SQL database scripts to Atlas",
+  "description": "Easily deploy your Azure SQL scripts to Atlas with Entra ID credentials!",
+  "iconName": "azure",
+  "categories": ["Deployment", "Database"]
+}
