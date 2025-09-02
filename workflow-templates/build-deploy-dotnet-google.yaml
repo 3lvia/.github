@@ -77,8 +77,8 @@ jobs:
           working-directory: 'applications/demo-api/src'
           system: ${{ env.SYSTEM_NAME }}
 
-  build-scan:
-    name: Build and Scan
+  build:
+    name: Build
     runs-on: elvia-runner
     permissions:
       actions: read
@@ -88,7 +88,7 @@ jobs:
       security-events: write
     # Limits the number of concurrent runs of this job to one, and cancels any in progress.
     concurrency:
-      group: '${{ github.workflow }}-${{ github.ref }}-build-scan'
+      group: '${{ github.workflow }}-${{ github.ref }}-build'
       cancel-in-progress: true
     environment: build
     steps:
@@ -108,7 +108,7 @@ jobs:
     needs:
       - unit-tests
       - integration-tests
-      - build-scan
+      - build
       - analyze
     runs-on: elvia-runner
     permissions:
