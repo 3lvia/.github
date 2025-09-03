@@ -35,7 +35,7 @@ jobs:
       - uses: 3lvia/core-github-actions-templates/analyze@trunk
         with:
           # This can be set to a more specific path if you want to analyze only a part of the repository.
-          working-directory: 'applications/demo-api/src'
+          working-directory: '.'
           language: 'csharp'
 
   unit-tests:
@@ -54,7 +54,7 @@ jobs:
       - uses: 3lvia/core-github-actions-templates/unittest@trunk
         with:
           # This can be set to a more specific path if you want to search for tests in only a part of the repository.
-          working-directory: 'applications/demo-api/src'
+          working-directory: '.'
           test-coverage: 'true'
 
   integration-tests:
@@ -74,7 +74,7 @@ jobs:
       - uses: 3lvia/core-github-actions-templates/integrationtest@trunk
         with:
           # This can be set to a more specific path if you want to search for tests in only a part of the repository.
-          working-directory: 'applications/demo-api/src'
+          working-directory: '.'
           system: ${{ env.SYSTEM_NAME }}
 
   build:
